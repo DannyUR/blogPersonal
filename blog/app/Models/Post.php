@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table="posts";
+     protected $table="posts";
     protected $fillable=[
         "title",
         "description",
@@ -15,6 +15,7 @@ class Post extends Model
         "likes",
         "slug",
         "user_id",
-        "category_id"   
+        "category_id",
+        
     ];
 }

@@ -13,8 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(users_seed::class);
-        $this->call(caregories_seed::class);
-        $this->call(PostSeeder::class);        
+       $this->call(users_seed::class);
+       $this->call(categories_seed::class);
+       $this->call(PostSeeder::class);
+       //php artisan migrate:fresh --seed
     }
 }

@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        schema::create('likes',function(Blueprint $table){
-            $table->id();
-            $table->foreignId('user_id')-> constrained('users');
-            $table->foreignId('post_id')-> constrained('posts');             
-            $table->timestamps();
+        Schema::create('categories',function(Blueprint $table){
+                $table->id();
+                $table->string("name",200);
+                $table->string("img",100);
+                $table->timestamps();
+
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('likes');
+        //
     }
 };

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BLOG</title>
+    <title>SB Admin 2 - Blank</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset ('/admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -27,7 +27,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('admin.layouts.sidebar')
+      @include('admin.layouts.sidebar')
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -35,20 +35,19 @@
             <!-- Main Content -->
             <div id="content">
 
-                @include('admin.layouts.nav')
+              @include('admin.layouts.nav')
 
-                <!-- Begin Page Content (solo cambia aqui)-->
+                <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    @yield('contenido')
-
+                      @yield('contenido')
+                 
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
-            
+          @include('admin.layouts.footer')
 
         </div>
         <!-- End of Content Wrapper -->
@@ -82,16 +81,15 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('/admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset ('/admin/vendor/jquery/jquery.min.js ') }}" ></script>
+    <script src="{{ asset ('/admin/vendor/bootstrap/js/bootstrap.bundle.min.js ') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset ('/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('/admin/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset ('/admin/js/sb-admin-2.min.js') }}"></script>
     @yield('scripts')
-
 </body>
 
 </html>

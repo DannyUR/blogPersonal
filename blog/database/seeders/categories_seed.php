@@ -5,8 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
-class caregories_seed extends Seeder
+class categories_seed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,13 +15,19 @@ class caregories_seed extends Seeder
         DB::table('categories')->insert([
             "name"=>'Plantas',
             "img"=>"default.jpg",
-            'created_at'=> date('Y-m-d h:m:s') //2025-12-12
+            "created_at"=>date('Y-m-d h:m:s')// 2025-12-12
+
         ]);
 
-            DB::table('categories')->insert([
-            "name"=>'Arbustos',
+
+        DB::table('categories')->insert([
+            "name"=>'Arboles',
             "img"=>"default.jpg",
-            'created_at'=> date('Y-m-d h:m:s') //2025-12-12
+            "created_at"=>date('Y-m-d h:m:s')// 2025-12-12
+
         ]);
     }
-}
+        
+    }
+    
+
