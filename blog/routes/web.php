@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostsController;
 
 //ENDPOINT
 Route::get('/', function () {
@@ -16,12 +18,15 @@ Route::get('/about', function (){
 Route::get('/post', function (){
     return view('post');
 });
-Route::group(['prefix'=>'dashboard'], function(){
-    Route::get('/', function (){
-        return view('admin.dashboard');
-    });
-    Route::get('/users',[UsersController::class,'getUsers']);
-
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route:: resource('/posts', PostsController::class);
+    Route::get('/posts/actions/add',[PostsController::class,'showAdd']);
+    Route::get('/users', [UserController::class, 'getUsers'])->name('dashboard.users');
+    Route::post('/users', [UserController::class, 'createUsers'])->name('dashboard.users.create');
 });
+
+Auth::routes();
+Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
 
