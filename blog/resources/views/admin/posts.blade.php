@@ -1,11 +1,13 @@
 @extends('admin.layouts.main')
 @section('contenido')
+
 <div class="d-flex justify-content-between">
     <h1>POST</h1>
     <div>
         <a href="/dashboard/posts/actions/add" class="btn btn-dark">Agregar</a>
     </div>
 </div>
+
 <div class="row">
     @foreach($posts as $post)
         <div class="col-3">
@@ -20,6 +22,5 @@
         </div>
     @endforeach
 </div>
-    
 
 @endsection

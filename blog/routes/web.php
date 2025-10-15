@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 
@@ -9,24 +9,30 @@ use App\Http\Controllers\PostsController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contacto', function (){
+Route::get("/contacto", function() {
     return view('contacto');
+});    
+Route::get("/post", function() {
+        return view('post');
 });
-Route::get('/about', function (){
+Route::get("/about", function() {
     return view('about');
 });
-Route::get('/post', function (){
-    return view('post');
+
+Route::group(['prefix' => 'dashboard'], function(){
+    Route::resource('/',DashboardController::class);
+    Route::resource('/posts',PostsController::class);
+
+    Route::get('/posts/actions/add',[PostsController::class, 'showAdd']);
+    Route::get("/users",[UsersController::class,'getUsers']);
+    Route::post("/users",[UsersController::class,'createUsers']);
 });
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route:: resource('/posts', PostsController::class);
-    Route::get('/posts/actions/add',[PostsController::class,'showAdd']);
-    Route::get('/users', [UserController::class, 'getUsers'])->name('dashboard.users');
-    Route::post('/users', [UserController::class, 'createUsers'])->name('dashboard.users.create');
-});
+
+
+
+
+
 
 Auth::routes();
-Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
